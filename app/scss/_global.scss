@@ -1,0 +1,106 @@
+html,
+body{
+    height: 100%;
+}
+body{
+    color: $default;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700; 
+    display: flex;
+    flex-direction: column;
+}
+.main{
+    flex-grow: 1;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; 
+}
+a{
+    color: $default;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;   
+}
+.title{
+    text-align: center;
+    font-size: 48px;
+    line-height: 65px;
+    color: $title;font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.text{
+    text-align: center;
+    max-width: 570px;
+    margin: 0 auto 55px;
+}
+.breadcrumbs{
+    display:inline-flex;
+    justify-content: center;
+    padding-left: 25px;
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        background-image: url('../images/icons/home.jpg');
+        width: 16px;
+        height: 16px;
+        left: 0;
+    }
+    &__list{
+        display: flex;        
+    }
+    &__item {
+        color: #727272;
+        padding-right: 40px;
+        position: relative;
+        &::after{
+            content: "";
+            position: absolute;
+            background-image: url('../images/icons/right.jpg');
+            background-repeat: no-repeat;
+            width: 9px;
+            height: 10px;
+            right: 15px;
+            top: 5px;
+        }
+        &:last-child{
+            color: $accent;
+            padding-right: 0;
+            &::after{
+                display: none;
+            }
+        }
+    }
+    &__link{
+        color: inherit;
+    }
+}
+.header--404-page{
+    background-color: $bg;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    .pagination__list {
+        display: flex;
+        padding: 0 35px;
+        }
+        &__item {
+            padding: 0 15px;
+        }
+        &__link--active{
+            color: $accent;
+        }
+        &__arrows{
+            text-transform: uppercase;
+            position: relative;
+        }
+    
+}
