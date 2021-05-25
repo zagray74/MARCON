@@ -81,14 +81,14 @@ function images(){
 function build(){
   return src([
     'app/**/*.html',
-    'app/css/**/*.css',
+    'app/css/style.min.css',
     'app/js/main.min.js'
   ], {base: 'app'})
   .pipe(dest('dist'))
 }
 
 function watching(){
-  watch(['app/scss/**/*.scss'], styles);
+  watch(['app/**/*.scss'], styles);
   watch(['app/*.njk'], nunjucks);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
@@ -107,4 +107,4 @@ exports.nunjucks = nunjucks;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
 
-exports.default = parallel( nunjucks, styles, nodeModuleStyles, scripts, browsersync, watching);
+exports.default = parallel(nunjucks, styles, nodeModuleStyles, scripts, browsersync, watching);
