@@ -5,7 +5,7 @@
     padding: 70px 0 40px;
     border-bottom: 1px solid #ececec;
     display: flex;
-    align-items: flex-start;
+    
    &__contact{
        width: 250px;
        margin-right: 50px;
@@ -13,10 +13,7 @@
    &__nav{
        width: 250px;
        margin-right: 30px;
-   } 
-   &__item-form{
-       min-width: 470px;
-   }  
+   }
    &__logo{
        margin-bottom: 33px;
        display: block;
@@ -72,7 +69,8 @@
 }
 .footer-bottom{
     display: flex;
-    height: 75px;
+    min-height: 75px;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
@@ -82,5 +80,70 @@
     }
     &__assept-img{
         margin-left: 25px;
+    }
+}
+@media (max-width: 1050px){
+    .footer-top{
+        flex-wrap: wrap;
+        &__item-form {
+            max-width: 100%;
+            margin-top: 30px;
+        }
+    }
+}
+@media (max-width: 860px){
+    .footer-top{
+        
+        &__contact {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+}
+@media (max-width: 620px){
+    .footer-top{
+        &__form-input {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        &__form-btn{
+            width: 100%;
+        }
+        &__text {
+            width: 90%;
+        }
+    }
+    .footer-bottom{
+        justify-content: center;
+        &__copy{
+            width: 100%;
+            text-align: center;
+        }
+        &__accept-img{
+            margin-left: 15px;
+        }
+    }
+}
+@media (max-width: 450px){
+    .footer-top{
+        &__form {
+            flex-wrap: wrap;
+        }
+        &__form-input {
+            max-width: 100%;
+            margin-right: 0;
+        }
+        &__form-btn{
+            width: 100%;
+        }
+        &__text {
+            width: 61%;
+        }
+    }
+    .footer-bottom{
+        &__accept-img{
+            margin-left: 15px;
+        }
     }
 }
