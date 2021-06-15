@@ -3,32 +3,7 @@
 @import 'reset';
 @import 'libs';
 @import 'global';
-
-
-
-
-
-
-.blog-box{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  &__author,  
-  &__date{
-    padding-left: 30px;
-    position: relative;
-    &::before{
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        left: 0;
-        top: 4px;
-  }
-}
-}
-
-
+@import 'media';
 
 .page-404{    
     padding: 110px 0 120px;
@@ -46,6 +21,7 @@
       margin-bottom: 40px;
       font-weight: 700;
       font-size: 48px;
+      line-height: 52px;
     }
     &__text{
       margin-bottom: 55px;
@@ -68,6 +44,9 @@
         width: 370px;
         margin-right: 30px;
         
+    }
+    &__filter-btn{
+        display: none;
     }
 }
 .filters{
@@ -1054,7 +1033,7 @@
         color: $title;
     }
     &__form{
-        width: 100%;
+        max-width: 100%;
         padding: 60px 40px;
         box-shadow: 0px 5px 20px 0px rgba(146,146,146,0.3);
     }
