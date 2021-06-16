@@ -80,7 +80,7 @@ function images(){
 
 function build(){
   return src([
-    'app/**/*.html',
+    'app/*.html',
     'app/css/*.css',
     'app/js/main.min.js'
   ], {base: 'app'})
