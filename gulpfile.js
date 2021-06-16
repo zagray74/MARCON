@@ -12,13 +12,13 @@ const browserSync = require('browser-sync').create();
 function browsersync(){
   browserSync.init({
     server: {
-      baseDir: 'app/'
+      baseDir: 'app'
     },
     notify: false
   })
 }
 function nunjucks(){
-  return src('app/*njk')
+  return src('app/templates/*njk')
   .pipe(nunjucksRender())
   .pipe(dest('app'))
   .pipe(browserSync.stream())
@@ -81,7 +81,7 @@ function images(){
 function build(){
   return src([
     'app/**/*.html',
-    'app/css/style.min.css',
+    'app/css/*.css',
     'app/js/main.min.js'
   ], {base: 'app'})
   .pipe(dest('dist'))
@@ -89,7 +89,7 @@ function build(){
 
 function watching(){
   watch(['app/**/*.scss'], styles);
-  watch(['app/*.njk'], nunjucks);
+  watch(['app/templates/*.njk'], nunjucks);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
@@ -105,6 +105,6 @@ exports.watching = watching;
 exports.images = images;
 exports.nunjucks = nunjucks;
 exports.cleanDist = cleanDist;
-exports.build = series(cleanDist, images, build);
+exports.build = series(cleanDist, images, nunjucks, build);
 
 exports.default = parallel(nunjucks, styles, nodeModuleStyles, scripts, browsersync, watching);
